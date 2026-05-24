@@ -37,20 +37,33 @@ Get back: the right asset, with metadata, directly in chat.
 No taxonomy knowledge required. No folder navigation.
 
 ## Architecture
-User prompt (ChatGPT Enterprise / Claude Desktop)
-│
-▼
-DAM Butler MCP Server
-┌─────────────────────────────────┐
-│ Intent Parser │ NL → structured query
-│ Metadata Normaliser │ Harmonises field names
-│ │ across regions
-│ Vault API Connector │ Breville DAM integration
-│ Clarification Loop │ Resolves ambiguous queries
-│ │ before API call
-└─────────────────────────────────┘
-│
-▼
+
+```mermaid
+flowchart TD
+    A(["👤 User Prompt\nChatGPT Enterprise · Claude Desktop"])
+
+    A --> B
+
+    subgraph MCP ["🔧 DAM Butler MCP Server"]
+        B["🧠 Intent Parser\nNatural language → structured query"]
+        B --> C["🔄 Clarification Loop\nResolves ambiguous queries\nbefore API call"]
+        C --> D["🗂️ Metadata Normaliser\nHarmonises field names\nacross global regions"]
+        D --> E["🔌 Vault API Connector\nBreville DAM integration"]
+    end
+
+    E --> F[("🗄️ Vault DAM\nBrandfolder")]
+    F --> G(["📦 Asset Results\nwith metadata"])
+    G --> A
+
+    style MCP fill:#1a1a2e,stroke:#4a9eff,stroke-width:2px,color:#ffffff
+    style A fill:#0f3460,stroke:#4a9eff,color:#ffffff
+    style F fill:#16213e,stroke:#4a9eff,color:#ffffff
+    style G fill:#0f3460,stroke:#4a9eff,color:#ffffff
+    style B fill:#1a1a2e,stroke:#e94560,color:#ffffff
+    style C fill:#1a1a2e,stroke:#e94560,color:#ffffff
+    style D fill:#1a1a2e,stroke:#e94560,color:#ffffff
+    style E fill:#1a1a2e,stroke:#e94560,color:#ffffff
+```
 ---
 
 ## Vault DAM (Brandfolder)
