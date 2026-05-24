@@ -1,10 +1,15 @@
 # DAM Butler MCP
 
-An MCP server that gives ChatGPT Enterprise and Claude natural 
-language access to Breville's Vault DAM system.
+**An MCP server that gives ChatGPT Enterprise and Claude natural language access to Breville's Vault DAM system**.
 
-Built as a weekend prototype. Demoed to product leadership 
-September 2025. Architecture adopted and taken to production 
+> Transforming how teams find brand assets using natural language and AI
+
+[![Deploy Status](https://img.shields.io/badge/deploy-live-brightgreen)](https://dam-butler-mcp.vercel.app/)
+[![Vercel](https://img.shields.io/badge/vercel-deployed-black)](https://dam-butler-mcp.vercel.app/)
+[![ChatGPT](https://img.shields.io/badge/ChatGPT-Enterprise-blue)](https://chatgpt.com/)
+[![MCP](https://img.shields.io/badge/MCP-1.0.0-purple)](https://modelcontextprotocol.io/)
+
+Built as a MVP prototype. Demoed to product leadership September 2025. Architecture adopted and taken to production 
 by the Breville product engineering team.
 
 ▶️ [Watch the demo](https://www.youtube.com/watch?v=UOeHNyh5A7Y)
