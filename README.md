@@ -37,32 +37,51 @@ Get back: the right asset, with metadata, directly in chat.
 No taxonomy knowledge required. No folder navigation.
 
 ## Architecture
-
 ```mermaid
 flowchart TD
-    A(["👤 User Prompt\nChatGPT Enterprise · Claude Desktop"])
+    A(["👤 User Prompt
+    ChatGPT Enterprise · Claude Desktop"])
 
     A --> B
 
-    subgraph MCP ["🔧 DAM Butler MCP Server"]
-        B["🧠 Intent Parser\nNatural language → structured query"]
-        B --> C["🔄 Clarification Loop\nResolves ambiguous queries\nbefore API call"]
-        C --> D["🗂️ Metadata Normaliser\nHarmonises field names\nacross global regions"]
-        D --> E["🔌 Vault API Connector\nBreville DAM integration"]
+    subgraph MCP ["  🔧  DAM Butler MCP Server  "]
+        direction TB
+        B["🧠 Intent Parser
+        Natural language → structured query"]
+
+        B --> C
+
+        C["🔄 Clarification Loop
+        Resolves ambiguous queries before API call"]
+
+        C --> D
+
+        D["🗂️ Metadata Normaliser
+        Harmonises field names across global regions"]
+
+        D --> E
+
+        E["🔌 Vault API Connector
+        Breville DAM integration"]
     end
 
-    E --> F[("🗄️ Vault DAM\nBrandfolder")]
-    F --> G(["📦 Asset Results\nwith metadata"])
-    G --> A
+    E --> F
+
+    F[("🗄️ Vault DAM · Brandfolder")]
+
+    F --> G
+
+    G(["📦 Asset Results returned to user
+    with metadata · preview · download link"])
 
     style MCP fill:#1a1a2e,stroke:#4a9eff,stroke-width:2px,color:#ffffff
-    style A fill:#0f3460,stroke:#4a9eff,color:#ffffff
-    style F fill:#16213e,stroke:#4a9eff,color:#ffffff
-    style G fill:#0f3460,stroke:#4a9eff,color:#ffffff
-    style B fill:#1a1a2e,stroke:#e94560,color:#ffffff
-    style C fill:#1a1a2e,stroke:#e94560,color:#ffffff
-    style D fill:#1a1a2e,stroke:#e94560,color:#ffffff
-    style E fill:#1a1a2e,stroke:#e94560,color:#ffffff
+    style A fill:#0f3460,stroke:#4a9eff,stroke-width:2px,color:#ffffff
+    style B fill:#1a1a2e,stroke:#e94560,stroke-width:1.5px,color:#ffffff
+    style C fill:#1a1a2e,stroke:#e94560,stroke-width:1.5px,color:#ffffff
+    style D fill:#1a1a2e,stroke:#e94560,stroke-width:1.5px,color:#ffffff
+    style E fill:#1a1a2e,stroke:#e94560,stroke-width:1.5px,color:#ffffff
+    style F fill:#16213e,stroke:#4a9eff,stroke-width:2px,color:#ffffff
+    style G fill:#0f3460,stroke:#4a9eff,stroke-width:2px,color:#ffffff
 ```
 ---
 
